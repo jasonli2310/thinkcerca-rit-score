@@ -18,10 +18,8 @@ import math
 #########
 ###########
 
-
 gradeInput = int(sys.argv[1])
 ritInput = int(sys.argv[2])
-
 
 def read_csv(filename):
     '''
@@ -101,6 +99,15 @@ def YearCalculator(resultList, dataRIT):
 
     return yearsGrown
 
+def readingLevel(score, dataRIT):
+    '''
+        Checks through DataRIT for the EOY score. If score is less than EOY score, we return grade of that year.
+    '''
+    for grade in dataRIT[1:]:
+        if score < data[3]:
+            return data[0]
+
+
 
 def projectRIT(grade, score, dataRIT, ritGrowthPercents):
 
@@ -113,8 +120,6 @@ def projectRIT(grade, score, dataRIT, ritGrowthPercents):
     resultsYear3 = resultsYear2+growthYear3
 
     return [[growthYear1, growthYear2, growthYear3], [score, resultsYear1, resultsYear2, resultsYear3]] ####Added startingScore
-
-
 
 
 #############################
