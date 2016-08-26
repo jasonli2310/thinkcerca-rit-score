@@ -35,26 +35,46 @@
       </div>
     </div>
 
-    <form name="myForm" action="rit.php" method="get">
-
+  <div class="col-sm-6">
+    <form name="myForm" action="rit.php" method="get" style="margin: 50px;" class="form-inline">
+      <strong style="font-size: 15pt;">If you know the average RIT scores for your students:</strong><br><br>
 
       <div class="form-group">
-          <label for="grade">Student Grade</label>
+          <label for="grade">School Grade: </label>
           <input type="text" class="form-control" name="grade" placeholder="Grade" >
       </div>
-        <br>
+
       <div class="form-group">
-          <label for="RITscore">RIT Score</label>
+          <label for="RITscore">RIT Score: </label>
           <input type="text" class="form-control" name="baserit" placeholder="RITScore">
       </div>
 
       <button type="submit" class="btn btn-default submit-button" value="Submit">Submit</button>
     </form>
+  </div>
 
+  <div class="col-sm-6">
+    <form name="myForm" action="rit.php" method="get" style="margin: 50px;" class="form-inline">
+      <strong style="font-size: 15pt;">If you know relative reading levels for your students:</strong><br><br>
+
+      <div class="form-group">
+          <label for="grade">School Grade: </label>
+          <input type="text" class="form-control" name="grade" placeholder="Grade" >
+      </div>
+
+      <div class="form-group">
+          <label for="RITscore">RIT Score: </label>
+          <input type="text" class="form-control" name="baserit" placeholder="RITScore">
+      </div>
+
+      <button type="submit" class="btn btn-default submit-button" value="Submit">Submit</button>
+    </form>
+  </div>
 
     <body>
+      Here is the how ThinkCERCA students compare to the National Average
       <div style="width: 60%;">
-        <canvas id="lineChart" width="100" height="100"></canvas>
+        <canvas id="lineChart" width="100" height="50"></canvas>
       </div>
       <script src="Chart.min.js"></script>
       <script src="chart.js"></script>
