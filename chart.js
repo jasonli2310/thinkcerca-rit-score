@@ -1,10 +1,10 @@
-var CHART = document.getElementById('lineChart');
-let lineChart = new Chart(CHART,
+var CHART = document.getElementById('barChart');
+let barChart = new Chart(CHART,
   {
 
       type: "bar",
       data: {
-          labels: ["Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11"],
+          labels: ["Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8"],
           datasets: [
               {
 
@@ -12,7 +12,7 @@ let lineChart = new Chart(CHART,
                 backgroundColor:'#97bfef',
                 borderColor: "#97bfef",
                 borderWidth: 1,
-                data: [7.7, 6.1, 4.8, 3.8, 2.9, 1.7, 0.8, 0.1],
+                data: [7.7, 6.1, 4.8, 3.8, 2.9],
 
 
               },
@@ -22,7 +22,7 @@ let lineChart = new Chart(CHART,
                 backgroundColor: '#307fe2',
                 borderColor: "#333F48",
                 borderWidth: 1,
-                data: [8.8, 8.7, 5.5, 6.3, 4.7, 2.6, 1.3, 0.16],
+                data: [8.8, 8.7, 5.5, 6.3, 4.7],
 
               }]
             },
@@ -32,7 +32,7 @@ let lineChart = new Chart(CHART,
               scales:{
                 yAxes:[{
                   ticks:{
-              
+
                     max: 12,
                     min: 0,
                     stepSize: 2
@@ -40,11 +40,4 @@ let lineChart = new Chart(CHART,
                 }]
               }
             }
-
-  // //
-  // $('.submit-button').click(function() {
-  //   //do something
-  //   alert('hi!');
-  // });
-
   });

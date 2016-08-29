@@ -20,7 +20,6 @@ exec("python calculations.py ".$_GET["grade"]." ".$_GET["baserit"], $output);
   <script>
   var CHART = document.getElementById('lineChart');
 
-  var grade = 3 ;
   var withThinkCERCA = <?php echo $output[1] ?>;
   var nationalAverage = <?php echo $output[0] ?>;
 
@@ -65,14 +64,10 @@ exec("python calculations.py ".$_GET["grade"]." ".$_GET["baserit"], $output);
               }
 
     });
-
     </script>
 
 
     Years of Growth: <?php echo $output[2]; ?><br>
-
-
-
 
 
 

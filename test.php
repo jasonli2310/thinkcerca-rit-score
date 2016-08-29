@@ -3,44 +3,41 @@
 // $baserit = $_GET["baserit"] + 1;
 
 $output = array();
-exec("python sandbox.py ".$_GET["grade"]." ".$_GET["baserit"], $output);
-// var_dump( $output);
+exec("python calculations.py ".$_GET["grade"]." ".$_GET["baserit"], $output);
+//var_dump( $output);
 
 ?>
 
 <html>
 <body>
-
+Hello there
       <div style="width: 40%;">
         <canvas id="lineChart" width="100" height="50"></canvas>
       </div>
       <script src="Chart.min.js"></script>
 
-
   <script>
   var CHART = document.getElementById('lineChart');
 
-  var grade = 3 ;
-  var withThinkCERCA = <?php echo $output[0] ?>;
-  var nationalAverage = [5, 6, 7, 8]
-
+  var withThinkCERCA = <?php echo $output[3] ?>;
+  var nationalAverage = <?php echo $output[4] ?>;
 
   let lineChart = new Chart(CHART,
     {
 
         type: "bar",
         data: {
-            labels: ["Grade 1", "Grade 2", "Grade 3", "Grade 4"],
+            labels: ["Year 1", "Year 2", "Year 3", "Year 4"],
             datasets: [
                 {
-                  label: "National Average Growth",
+                  label: "National Average Score",
                   backgroundColor:'#97bfef',
                   borderColor: "#97bfef",
                   borderWidth: 1,
                   data: nationalAverage,
                 },
                 {
-                  label: "Growth with ThinkCERCA",
+                  label: "Score using ThinkCERCA",
                   backgroundColor: '#307fe2',
                   borderColor: "#333F48",
                   borderWidth: 1,
@@ -56,25 +53,18 @@ exec("python sandbox.py ".$_GET["grade"]." ".$_GET["baserit"], $output);
                   yAxes:[{
                     ticks:{
                       beginAtZero: false,
-                      max: 12,
-                      min: 4,
-                      stepSize: 2
+                      //min: 180
+                      stepSize: 5
                     }
                   }]
                 }
               }
 
     });
-
     </script>
 
 
-    Welcome <?php echo $baserit; ?><br>
-    Your email address is: <?php echo $_GET["baserit"]; ?>
-    <?php echo "helloWorld"; ?>
-
-
-
+    Years of Growth: <?php echo $output[2]; ?><br>
 
 
 
