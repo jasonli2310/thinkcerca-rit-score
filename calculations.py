@@ -18,9 +18,6 @@ import math
 #########
 ###########
 
-gradeInput = int(sys.argv[1])
-ritInput = int(sys.argv[2])
-
 def read_csv(filename):
     '''
     Read data from the specified file, specifically csv. Output list of lists [Grade, Begin, Mid, End, Diff]
@@ -127,10 +124,18 @@ def projectRIT(grade, score, dataRIT, ritGrowthPercents):
 #  def done                 #
 #############################
 # this is data on how much each grade should grow, percentage above the standard.
+
+gradeInput = int(sys.argv[1])
+ritInput = int(sys.argv[2])
+
 ritGrowthPercents = [[3, 1.05], [4, 1.147], [5, 1.428], [6, 1.146], [7, 1.667], [8, 1.630], [9, 1.530], [10, 1.640], [11, 1.650]]
 standardRIT = read_csv("standard2015.csv")
 
 standardRITScore = standardRIT[gradeInput-2][1]
+
+if ritInput < 100:
+    ritInput = standardRIT[gradeInput-ritInput-2][1]
+
 
 if ritInput < standardRITScore:
     readingGrade = int(readingLevel(ritInput, standardRIT))

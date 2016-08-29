@@ -40,7 +40,7 @@
       <strong style="font-size: 15pt;">If you know the average RIT scores for your students:</strong><br><br>
 
       <div class="form-group">
-          <label for="grade">School Grade: </label>
+          <label for="grade">Class Grade: </label>
           <input type="text" class="form-control" name="grade" placeholder="Grade" >
       </div>
 
@@ -54,32 +54,42 @@
   </div>
 
   <div class="col-sm-6">
-    <form name="form2" action="test.php" method="get" style="margin: 50px;" class="form-inline">
+    <form name="form2" action="rit.php" method="get" style="margin: 50px;" class="form-inline">
       <strong style="font-size: 15pt;">If you know relative reading levels for your students:</strong><br><br>
 
       <div class="form-group">
-          <label for="grade">School Grade: </label>
+          <label for="grade">Class Grade: </label>
           <input type="text" class="form-control" name="grade" placeholder="Grade" >
       </div>
 
       <div class="form-group">
-          <label for="RITscore">RIT Score: </label>
-          <input type="text" class="form-control" name="baserit" placeholder="RITScore">
+          <label for="RITscore">Reading is underperforming by: </label>
+          <input type="text" class="form-control" name="baserit" placeholder="# years">
       </div>
 
       <button type="submit" class="btn btn-default submit-button" value="Submit">Submit</button>
     </form>
   </div>
 
-    <body>
-      Here is the how ThinkCERCA students compare to the National Average
+  <div class="col-sm-12" style="margin: 50px;">
+      <h3>Here is the how ThinkCERCA students compare to the National Average*</h3>
       <div style="width: 60%;">
-        <canvas id="barChart" width="100" height="50"></canvas>
+        <canvas id="barChartAvg" width="100" height="50"></canvas>
       </div>
+
       <script src="Chart.min.js"></script>
       <script src="chart.js"></script>
-  </body>
 
+
+
+    </div>
+
+  <div class-"col-sm-12" style="margin: 50px;">
+    <h4> <a href="https://thinkcerca.com/results/"> * All projection data is based on our research.</a></h4>
     <br><br><br><br><br><br>
+
+  </div>
+
+
 </body>
 </html>
