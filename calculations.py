@@ -104,8 +104,9 @@ def readingLevel(score, dataRIT):
         Checks through DataRIT for the EOY score. If score is less than EOY score, we return grade of that year.
     '''
     for grade in dataRIT[1:]:
-        if score < data[3]:
-            return data[0]
+        if score < grade[3]:
+            return grade[0]
+        else: return dataRIT[-1][0] #if score/reading level is too high, change grade to 11
 
 
 
@@ -129,28 +130,31 @@ def projectRIT(grade, score, dataRIT, ritGrowthPercents):
 ritGrowthPercents = [[3, 1.05], [4, 1.147], [5, 1.428], [6, 1.146], [7, 1.667], [8, 1.630], [9, 1.530], [10, 1.640], [11, 1.650]]
 standardRIT = read_csv("standard2015.csv")
 
+standardRITScore = standardRIT[gradeInput-2][1]
+
+if ritInput < standardRITScore:
+    readingGrade = int(readingLevel(ritInput, standardRIT))
+
 #############################
 #  Output Below             #
 #############################
 
-#standardRITScore = standardRIT[gradeInput-2][1]
-#
-# if ritInput < standardRITScore:
-#     print ("Your student's score is below average by ", standardRITScore-ritInput, " RIT points")
-# else:
-#     print ("Your student's score is above average by ", ritInput-standardRITScore, " RIT points")
-# # (1)
-
 print [standardRIT[gradeInput-2][4], standardRIT[gradeInput-1][4], standardRIT[gradeInput][4]]
-# (2)national averages
+# (1) national averages
 
-projectionTest = projectRIT(gradeInput, ritInput, standardRIT, ritGrowthPercents)
+projectionTest = projectRIT(readingGrade, ritInput, standardRIT, ritGrowthPercents)
 print [round(projectionTest[0][0]), round(projectionTest[0][1]), round(projectionTest[0][2])]
-# (3)growth w ThinkCERCA
+# (2) growth w ThinkCERCA
 
 yearTest = YearCalculator(projectionTest[1], standardRIT)
 print [yearTest[0], yearTest[1], yearTest[2]]
-# (4)growth years
+# (3) growth years
+
+print [projectionTest[1][0], projectionTest[1][1], projectionTest[1][2], projectionTest[1][3]]
+# (4) actual RIT scores with ThinkCERCA
+
+print [standardRIT[gradeInput-2][1], standardRIT[gradeInput-1][1], standardRIT[gradeInput][1], standardRIT[gradeInput+1][1]]
+# (5) actual national average RIT scores
 
 
 # print ('\n', '\n')
